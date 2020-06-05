@@ -1,0 +1,7 @@
+.dropdown li:first {
+    list-style: none;
+}
+.dropdown-user {
+    right: 0;
+    left: auto;
+}
