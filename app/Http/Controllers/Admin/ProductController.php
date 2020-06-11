@@ -38,12 +38,21 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        $filenameWithExt = $request->file('photo')->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('photo')->getClientOriginalExtension();
+        $filenameToStore = $filename."_".time().".".$extension;
+        $path = $request->file('photo')->storeAs('public/images',$filenameToStore);
         $product = new Product;
 
         $product->name =$request->name;
         $product->description =$request->description;
         $product->price =$request->price;
-        $product->photo =$request->photo;
+        $product->photo =$filenameToStore;
+        // $file = $request->file('photo');
+        // $name = $file->getClientOriginalName();
+        // $photo = random_int(1,2,3,4)."_".$name;
+        
         $product->save();
 
         return redirect()->route('admin.addProduct')->with('config_create', 'Tạo mới thành công');

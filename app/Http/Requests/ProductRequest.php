@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             'name' => 'bail|required|max:100',
             'price' => 'bail|required|numeric',
             'description' => 'bail|required',
-            'photo' => 'bail|required',
+            'photo' => 'bail|image|nullable|max:1000',
             // 'image' => 'bail|required|image|mimes:jpeg,png,jpg,gif|max:2048~'
         ];
     }
@@ -42,7 +42,7 @@ class ProductRequest extends FormRequest
 
             'description.required' => 'Mô tả sản phẩm không được để trống',
 
-            'photo.required' => 'Ảnh sản phẩm không được để trống',
+            'photo.image' => 'Ảnh phải đúng định dạng',
             // 'image.required' => ''
         ];
     }

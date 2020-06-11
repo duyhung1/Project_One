@@ -28,7 +28,8 @@
                 <td>{{$product['id']}}</td>
                 <td>{{$product['price']}}</td>
                 <td>{{$product['description']}}</td>
-                <td>{{$product['photo']}}</td>
+                <!-- <td>{{$product['photo']}}</td> -->
+                <td><img style="width: 40%;" src="http://127.0.0.1/Project_One/public/storage/images/{{$product['photo']}}" alt=""> </td>
                 <td>
                     <a href="product/edit/{{$product['id']}}"><i class="fas fa-edit"></i> Chỉnh sửa</a> | 
                     <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Xóa</a>

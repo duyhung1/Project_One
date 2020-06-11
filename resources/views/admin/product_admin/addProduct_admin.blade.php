@@ -8,7 +8,7 @@
     @endif
     <h2>Thêm mới sản phẩm</h2>
     <div class="form">
-        <form action="{{route('create.product')}}" method="post">
+        <form action="{{route('create.product')}}" method="post" enctype="multipart/form-data">
         <!-- @method('PATCH') -->
         @csrf
 
@@ -28,7 +28,7 @@
                 <p class="help">{{$errors->first('description')}}</p>
             @endif
             <label>Hình ảnh</label>
-            <input type="text" id="photo" name="photo" placeholder="Please Enter Photo (.jpeg, .png, .bmp, .gif, .svg, .webp)" value="{{ old('photo') }}">
+            <input type="file" id="photo" name="photo"  value="{{ old('photo') }}">
             @if($errors->has('photo'))
                 <p class="help">{{$errors->first('photo')}}</p>
             @endif
