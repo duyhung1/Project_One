@@ -1,0 +1,76 @@
+.create{
+    margin-left: 40px;
+    margin-top: 25px;
+}
+.form {
+    
+}
+.create h2 {
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 5px;
+}
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 40px;
+}
+
+.form input, select, textarea {
+    width: 400px;
+    height: 30px;
+    border: 1px solid #7c7a7a;
+    border-radius: 5px;
+    display: block;
+}
+.form textarea {
+    height: 90px;
+}
+.form textarea, input {
+    text-indent: 10px;
+    
+} 
+.alert {
+    background-color: rgba(0, 128, 0, 0.3);
+    font-size: 16pt;
+    display: inline;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.form button {
+    margin-top: 40px;
+    padding: 5px 10px;
+    border: 1px solid #7c7a7a;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+}
+.form button:hover {
+    background-color: #e6e6e6;
+}
+.help {
+    color: red;
+    padding-top: 5px;
+}
+.no_drop {
+    cursor: no-drop;
+    background-color: #e6e6e6;
+}
+
+.search-product {
+    margin-top: 15px;
+}
+.active {
+    font-weight: 600;
+    
+}
+a.danger {
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 5px 10px;
+    background-color: #ca5a2e;
+    color: #e7e7e7;
+    border-radius: 5px;
+}

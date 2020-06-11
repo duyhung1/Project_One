@@ -1,0 +1,9 @@
+- giu data sau khi submit
+- khi delete, hien 1 cai gi do de thong bao ban co muon xoa khong
+- menu ban trai: lam menu nhieu cap di
+
+
+
+- advance
++ thay doi ngon ngu cua message, title...
++ upload anh: hien thi anh khi upload, upload xong thi hien thi anh o man hinh list data

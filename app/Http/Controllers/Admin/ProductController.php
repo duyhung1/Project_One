@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view("admin.product_admin.product_admin", ['products' => $products]);
     }
 
@@ -46,7 +46,7 @@ class ProductController extends Controller
         $product->photo =$request->photo;
         $product->save();
 
-        return redirect()->route('admin.addProduct')->with('config_create', 'Tạo mới thành công');;
+        return redirect()->route('admin.addProduct')->with('config_create', 'Tạo mới thành công');
     }
 
     /**

@@ -1,0 +1,50 @@
+.main {
+    display: flex;
+}
+.main-right {
+    width: 100%;
+    margin-right: 20px;
+}
+.main-sub {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.alert {
+    background-color: rgba(0, 128, 0, 0.3);
+    font-size: 16pt;
+    display: inline;
+    padding: 10px;
+    border-radius: 10px;
+}
+.add-main {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.row-1 {
+    font-weight: 600;
+}
+.list a {
+    color: #ca5a2e;
+    text-decoration: underline;
+}
+.list h2 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eeeeee;
+}
+.list table {
+    margin-top: 30px;
+    margin-right: 10px;
+    width: 100%; 
+}
+.list table tr {
+    height: 40px;
+}
+.list table tr td {
+    padding-left: 10px;
+}
+.list table tr td a i {
+    color: dimgrey;
+    font-size: 10pt;
+}
