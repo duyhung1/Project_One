@@ -8,7 +8,7 @@
     @endif
     <h2>Sửa sản phẩm: {{$products['name']}}</h2>
     <div class="form">
-        <form action="{{$products['id']}}" method="post">
+        <form action="{{$products['id']}}" method="post" enctype="multipart/form-data">
         <!-- @method('PATCH') -->
         @csrf
 
@@ -28,7 +28,7 @@
                 <p class="help">{{$errors->first('description')}}</p>
             @endif
             <label>Hình ảnh</label>
-            <input type="text" id="photo" name="photo" value="{{$products['photo']}}">
+            <input type="file" id="photo" name="photo">
             @if($errors->has('photo'))
                 <p class="help">{{$errors->first('photo')}}</p>
             @endif

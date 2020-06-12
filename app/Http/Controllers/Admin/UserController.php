@@ -6,11 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\User;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\EditUserRequest;
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Foundation\Http\FormRequest;
 
 class UserController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -109,5 +112,22 @@ class UserController extends Controller
         $user =User::find($id);
         $user->delete();
         return redirect()->route('admin_user')->with('config_delete', 'Bạn đã xóa thành công');
+    }
+
+    public function getLogin() {
+        return view('admin.auth_admin.login_admin');
+    }
+
+    public function postLogin(LoginRequest $request) {
+        if(Auth::attempt(['email'=>$request->email, 'password'=>$request->password])) {
+            return redirect()->route('admin.index');
+        }else {
+            return redirect()->route('admin.login');
+        }
+    }
+
+    public function getLogout() {
+        Auth::logout();
+        return redirect()->route('admin.login');
     }
 }

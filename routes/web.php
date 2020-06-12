@@ -17,9 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 // ------------------------------------------------------------------------------------
+Route::get('admin/login', ['as'=>'admin.login', 'uses'=>'Admin\UserController@getLogin']);
+Route::post('admin/login', ['as'=>'admin.login', 'uses'=>'Admin\UserController@postLogin']);
+Route::get('admin/logout', ['as'=>'admin.logout', 'uses'=>'Admin\UserController@getLogout']);
 
-Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function() {
+Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' =>'adminLogin'], function() {
     Route::get('',['as'=>'admin.index', 'uses'=> 'adminController@index']);
+    
     Route::get('lang/{lang}',['as'=>'lang', 'uses'=>'LangController@changeLang']);
     
     Route::group(['prefix'=>'product'], function(){
@@ -50,6 +54,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function() {
     });
 
 });
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/admin', 'HomeController@index')->name('home');

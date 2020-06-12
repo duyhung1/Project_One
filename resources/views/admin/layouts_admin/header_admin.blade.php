@@ -12,13 +12,14 @@
         </div>
         <div>
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <i class="fas fa-user"></i>
+                <!-- <i class="fas fa-user"></i>  -->
+                {{  Auth::user()->name }}
             </a>
             <div class="dropdown-menu dropdown-user">
-                <a class="dropdown-item" href="#"><i class="fas fa-user"></i> {{ __('invariable_admin.header.profile_user')}}</a>
+                <!-- <a class="dropdown-item" href="#"><i class="fas fa-user"></i> {{  Auth::user()->name }}</a> -->
                 <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> {{ __('invariable_admin.header.setting_user')}}</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> {{ __('invariable_admin.header.login_user')}}</a>
+                <a class="dropdown-item" href="{{ route('admin.logout')}}"><i class="fas fa-sign-out-alt"></i> {{ __('invariable_admin.header.login_user')}}</a>
             </div>
         </div>
         

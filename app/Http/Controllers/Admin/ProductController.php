@@ -43,6 +43,7 @@ class ProductController extends Controller
         $extension = $request->file('photo')->getClientOriginalExtension();
         $filenameToStore = $filename."_".time().".".$extension;
         $path = $request->file('photo')->storeAs('public/images',$filenameToStore);
+
         $product = new Product;
 
         $product->name =$request->name;
@@ -91,10 +92,20 @@ class ProductController extends Controller
     public function update(ProductRequest $request, $id)
     {
         $products = Product::find($id);
+        if($request->hasFile('photo')){
+            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $filenameToStore = $filename."_".time().".".$extension;
+            $path = $request->file('photo')->storeAs('public/images',$filenameToStore);
+        }
+        
         $products->name = $request->name;
         $products->price = $request->price;
         $products->description = $request->description;
-        $products->photo = $request->photo;
+        if($request->hasFile('photo')){
+            $products->photo = $filenameToStore;
+        }
         $products -> save();
 
         return redirect('admin/product/edit/'.$id)->with('config_edit', 'Sửa thành công');
