@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             'name' => 'bail|required|max:100',
             'price' => 'bail|required|numeric',
             'description' => 'bail|required',
-            'photo' => 'bail|image|nullable|max:1000',
+            'photo' => 'bail|required|image|nullable|max:1000',
         ];
     }
     public function messages()
@@ -42,6 +42,7 @@ class ProductRequest extends FormRequest
             'description.required' => 'Mô tả sản phẩm không được để trống',
 
             'photo.image' => 'Ảnh phải đúng định dạng',
+            'photo.required' => 'Bạn phải chọn ảnh',
         ];
     }
 }

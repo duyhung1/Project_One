@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Product;
 use App\Http\Requests\ProductRequest;
-
+use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
     /**
@@ -121,6 +121,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $products = Product::find($id);
+        if($products->photo != ""){
+            Storage::delete('public/images/'.$products->photo);
+        }
         $products->delete();
         return redirect()->route('admin.product')->with('config_delete', 'Bạn đã xóa thành công');
     }

@@ -13,15 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-// ------------------------------------------------------------------------------------
-Route::get('admin/login', ['as'=>'admin.login', 'uses'=>'Admin\UserController@getLogin']);
-Route::post('admin/login', ['as'=>'admin.login', 'uses'=>'Admin\UserController@postLogin']);
-Route::get('admin/logout', ['as'=>'admin.logout', 'uses'=>'Admin\UserController@getLogout']);
 
-Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' =>'adminLogin'], function() {
+// ------------------------------------------------------------------------------------
+Route::get('login', ['as'=>'login', 'uses'=>'Authentication\LoginController@getLogin']);
+Route::post('login', ['as'=>'login', 'uses'=>'Authentication\LoginController@postLogin']);
+Route::get('logout', ['as'=>'logout', 'uses'=>'Authentication\LoginController@getLogout']);
+
+Route::get('register', ['as'=>'register', 'uses'=>'Authentication\RegisterController@create']);
+Route::post('register', ['as'=>'register', 'uses'=>'Authentication\RegisterController@store']);
+
+// Route::group(['prefix'=>'', 'middleware' =>'userLogin'], function() {
+    Route::get('/', ['as'=>'index', 'uses'=>'Controller@index']);
+// });
+
+Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function() {
     Route::get('',['as'=>'admin.index', 'uses'=> 'adminController@index']);
     
     Route::get('lang/{lang}',['as'=>'lang', 'uses'=>'LangController@changeLang']);
@@ -56,5 +61,5 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' =>'adminLogi
 });
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/admin', 'HomeController@index')->name('home');

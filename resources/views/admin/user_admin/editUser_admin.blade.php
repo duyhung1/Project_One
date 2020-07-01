@@ -12,7 +12,7 @@
         <!-- @method('PATCH') -->
         @csrf
 
-        <label>Tên người dùng</label>
+            <label>Tên người dùng</label>
             <input type="text" id="name" name="username" placeholder="Please Enter Username" value="{{$user['name']}}">
             @if($errors->has('username'))
                 <p class="help">{{$errors->first('username')}}</p>

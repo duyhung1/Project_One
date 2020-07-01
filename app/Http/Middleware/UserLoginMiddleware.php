@@ -4,8 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-
-class AdminLoginMiddleware
+class UserLoginMiddleware
 {
     /**
      * Handle an incoming request.
@@ -19,7 +18,7 @@ class AdminLoginMiddleware
         if(Auth::check()) {
             // return $next($request);
             $user = Auth::user();
-            if($user ->rule ==1) {
+            if($user ->rule ==1 || $user ->rule ==0 ) {
                 return $next($request);
             }else {
                 return redirect()->route('login')->with('notification','Tài khoản không đúng');
@@ -28,6 +27,5 @@ class AdminLoginMiddleware
         } else {
             return redirect()->route('login');
         }
-        
     }
 }

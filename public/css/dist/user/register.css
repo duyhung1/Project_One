@@ -10,12 +10,13 @@ legend {
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
     margin-bottom: 10px;
+    padding: 10px 0px;
     /* font-weight: 600; */
     /* font-size: 14pt; */
 }
 input.form-control {
     /* display: block; */
-    margin: 20px auto;
+    margin: 10px auto;
     width: 90%;
     
 }
@@ -31,4 +32,8 @@ small.text-muted {
 }
 small.text-muted:last-child {
     margin-bottom: 20px;
+}
+label {
+    margin-left: 15px;
+    /* font-weight: 600; */
 }
